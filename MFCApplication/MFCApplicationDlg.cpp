@@ -71,7 +71,7 @@ void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 
-	//ramya
+	
 	//DDX_Control(pDX, IDC_STATIC, m_PictureCtrl);
 }
 
@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CMFCApplicationDlg::OnBnClickedOk)
 	ON_CBN_SELCHANGE(IDC_COMBO1, &CMFCApplicationDlg::OnCbnSelchangeCombo1)
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplicationDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -160,7 +161,9 @@ void writeCSV()
 {
 	for (auto id : IdList)
 	{
-		GetIdResposne(id);
+		auto itr = userData.find(id);
+		if (itr == userData.end())
+			GetIdResposne(id);
 	}
 	fstream fout;
 
@@ -501,4 +504,18 @@ void CMFCApplicationDlg::OnBnClickedButton1()
 	std::wstring des(sData.GetString());
 	std::string str(des.begin(), des.end());
 	ImgeShow(str);
+}
+
+
+void CMFCApplicationDlg::OnBnClickedButton2()
+{
+	// TODO: Add your control notification handler code here
+	//CString text;
+//		text = "Preparing CSV format...Please Wait...";
+		MessageBox(CString("Preparing CSV format...Please Wait..."), MB_OK);
+	//SetDlgItemText(IDC_STATIC, text);
+	writeCSV();
+
+		MessageBox(CString("CSV file Exported"));
+
 }
