@@ -30,7 +30,9 @@ Run method
 *Finaly Displayed  User profile
 
 
+* If We want to Prepare CSV file, Click "Export CSV" button. 
 
+* After clicked Export CSV button, Csv file (csv file name-userdata.csv)written to bin folder
 
 
 
@@ -41,5 +43,15 @@ Run method
 api_helper.h
 MFCApplicationDlg.cpp
 
+
+
+
+
+
+
+
+
+
+https://drive.google.com/drive/folders/12l9_QqpJ2CctM_XH6AsJ_BNTtg2FCEMj?usp=sharing
 
 
